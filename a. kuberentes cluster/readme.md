@@ -16,8 +16,8 @@ etcd-0               Healthy   {"health":"true"}
 run this command `kubectl cluster-info` to get:
 
 ```
-Kubernetes master is running at "https://192.168.0.10:6443"
-KubeDNS is running at "https://192.168.0.10:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy"
+Kubernetes master is running at https://192.168.0.10:6443
+KubeDNS is running at https://192.168.0.10:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 
 ```
 
