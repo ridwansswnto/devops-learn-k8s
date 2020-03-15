@@ -52,3 +52,16 @@ kubectl get deployment
 NAME          READY   UP-TO-DATE   AVAILABLE   AGE
 first-nginx   2/2     2            2           3m54s
 ```
+
+Exposing port for external Access
+```
+kubectl expose deployment first-nginx --port=80 --type=LoadBalancer
+service/first-nginx exposed
+```
+
+check all services
+```
+kubectl get service
+NAME          TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)        AGE
+first-nginx   LoadBalancer   10.111.213.204   192.168.0.102   80:30106/TCP   70s
+```
