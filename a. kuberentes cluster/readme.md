@@ -95,5 +95,6 @@ Endpoints:                10.36.0.1:80,10.44.0.1:80
 Session Affinity:         None
 External Traffic Policy:  Cluster
 Events:                   <none>
-
 ```
+
+![](img/firsnginx.png)
