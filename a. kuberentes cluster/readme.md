@@ -22,14 +22,16 @@ KubeDNS is running at https://192.168.0.10:6443/api/v1/namespaces/kube-system/se
 ```
 
 ## Check node
-run this command `kubectl get nodes` to get:
+run this command `kubectl get nodes -o wide` to get:
 
 ```
-NAME                 STATUS   ROLES    AGE    VERSION
-master.ridwan.com    Ready    master   3d9h   v1.17.3
-worker1.ridwan.com   Ready    <none>   3d9h   v1.17.3
-worker2.ridwan.com   Ready    <none>   3d9h   v1.17.3
-worker3.ridwan.com   Ready    <none>   3d9h   v1.17.3
+kubectl get nodes -o wide
+NAME                 STATUS   ROLES    AGE    VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
+master.ridwan.com    Ready    master   4d7h   v1.17.3   192.168.0.10   <none>        Ubuntu 18.04.4 LTS   4.15.0-88-generic   docker://19.3.7
+worker1.ridwan.com   Ready    <none>   4d6h   v1.17.3   192.168.0.11   <none>        Ubuntu 18.04.4 LTS   4.15.0-88-generic   docker://19.3.7
+worker2.ridwan.com   Ready    <none>   4d6h   v1.17.3   192.168.0.12   <none>        Ubuntu 18.04.4 LTS   4.15.0-88-generic   docker://19.3.7
+worker3.ridwan.com   Ready    <none>   4d6h   v1.17.3   192.168.0.13   <none>        Ubuntu 18.04.4 LTS   4.15.0-88-generic   docker://19.3.7
+
 ```
 
 ## PoC Web server NGINX
@@ -72,5 +74,26 @@ now we validate if the services run with right
 curl -I 192.168.0.102
 HTTP/1.1 200 OK
 Server: nginx/1.17.9
+
+```
+
+How is works
+run with this command `kubectl describe service first-nginx`
+```
+Name:                     first-nginx
+Namespace:                default
+Labels:                   run=first-nginx
+Annotations:              <none>
+Selector:                 run=first-nginx
+Type:                     LoadBalancer
+IP:                       10.111.213.204
+LoadBalancer Ingress:     192.168.0.102
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+NodePort:                 <unset>  30106/TCP
+Endpoints:                10.36.0.1:80,10.44.0.1:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
 
 ```
