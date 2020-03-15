@@ -65,3 +65,12 @@ kubectl get service
 NAME          TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)        AGE
 first-nginx   LoadBalancer   10.111.213.204   192.168.0.102   80:30106/TCP   70s
 ```
+
+Validate
+now we validate if the services run with right 
+```
+curl -I 192.168.0.102
+HTTP/1.1 200 OK
+Server: nginx/1.17.9
+
+```
