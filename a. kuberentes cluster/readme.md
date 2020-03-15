@@ -30,3 +30,18 @@ master.ridwan.com    Ready    master   3d9h   v1.17.3
 worker1.ridwan.com   Ready    <none>   3d9h   v1.17.3
 worker2.ridwan.com   Ready    <none>   3d9h   v1.17.3
 worker3.ridwan.com   Ready    <none>   3d9h   v1.17.3
+```
+
+## PoC Web server NGINX
+run this command `kubectl run first-nginx --image=nginx --replicas=2 --port=80`
+```
+deployment.apps/first-nginx created
+```
+
+will create pod and deployment
+```
+kubectl get pods
+NAME                           READY   STATUS    RESTARTS   AGE
+first-nginx-79fb65f4f6-jnhsx   1/1     Running   0          2m11s
+first-nginx-79fb65f4f6-xhrkw   1/1     Running   0          2m11s
+```
