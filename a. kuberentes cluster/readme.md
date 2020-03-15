@@ -38,10 +38,17 @@ run this command `kubectl run first-nginx --image=nginx --replicas=2 --port=80`
 deployment.apps/first-nginx created
 ```
 
-will create pod and deployment
+will create pod
 ```
 kubectl get pods
 NAME                           READY   STATUS    RESTARTS   AGE
 first-nginx-79fb65f4f6-jnhsx   1/1     Running   0          2m11s
 first-nginx-79fb65f4f6-xhrkw   1/1     Running   0          2m11s
+```
+
+and deployment like:
+```
+kubectl get deployment
+NAME          READY   UP-TO-DATE   AVAILABLE   AGE
+first-nginx   2/2     2            2           3m54s
 ```
