@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: first-replicaset
+  labels:
+    version: 0.0.1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      project: first-web
+      role: frontend
+  template:
+    metadata:
+      labels:
+        project: first-web
+        role: frontend
+        env: dev
+    spec:
+      containers:
+      - name: first-web
+        image: nginx:latest
